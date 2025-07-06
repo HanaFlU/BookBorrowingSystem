@@ -20,6 +20,9 @@ jobs:
 
   test-api:
     runs-on: ubuntu-latest
+    env: 
+      PROCESS_CLEAN: false
+
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v4 # by default, gets last commit on default branch 
@@ -37,7 +40,11 @@ jobs:
       - name: Install newman
         run: |
           npm install -g newman
-
+      - name: Install project dependencies
+        run: npm install
+  
+      - name: Start backend server
+        run: RUNNER_TRACKING_ID="" && npm start &
       - name: Install Postman CLI
         run: |
           curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
