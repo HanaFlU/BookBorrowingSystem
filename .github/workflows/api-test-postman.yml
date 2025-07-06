@@ -1,0 +1,48 @@
+name: api-test-postman
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target Environment'
+        required: true
+        default: 'development'
+        type: choice
+        options:
+        - development
+        - staging
+        - production
+
+jobs:
+
+  test-api:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4 # by default, gets last commit on default branch 
+
+
+      # Install Node on the runner
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+          # cache: 'npm' # useful when the current repo has a package.json file
+
+
+      # Install the newman command line utility 
+      - name: Install newman
+        run: |
+          npm install -g newman
+
+      - name: Install Postman CLI
+        run: |
+          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
+      - name: Login to Postman CLI
+        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
+      - name: Run API tests
+        run: |
+          postman collection run "${{ github.workspace }}/postman/collections/My Collection.json"
