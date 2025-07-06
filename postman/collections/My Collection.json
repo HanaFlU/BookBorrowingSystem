@@ -14,7 +14,12 @@
 			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+					    "key": "Content-Type",
+					    "value": "application/json"
+					  }
+				],
 				"url": {
 					"raw": "http://localhost:3000/api/docgia/",
 					"protocol": "http",
