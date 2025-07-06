@@ -33,7 +33,7 @@ jobs:
         run: npm install -g newman
 
       - name: Install project dependencies
-        working-directory: ${{ github.workspace }}/app
+        working-directory: ${{ github.workspace }}/backend
         run: npm install
 
       - name: Start backend server in background
