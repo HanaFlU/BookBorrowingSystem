@@ -41,9 +41,11 @@ jobs:
         run: |
           npm install -g newman
       - name: Install project dependencies
+        working-directory: ${{ github.workspace }}/app
         run: npm install
   
       - name: Start backend server
+        working-directory: ${{ github.workspace }}/app
         run: RUNNER_TRACKING_ID="" && npm start &
       - name: Install Postman CLI
         run: |
