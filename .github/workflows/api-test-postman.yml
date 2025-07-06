@@ -33,11 +33,11 @@ jobs:
         run: npm install -g newman
 
       - name: Install project dependencies
-        working-directory: ${{ github.workspace }}/backend
+        working-directory: ${{ github.workspace }}/server
         run: npm install
 
       - name: Start backend server in background
-        working-directory: ${{ github.workspace }}/backend
+        working-directory: ${{ github.workspace }}/server
         run: RUNNER_TRACKING_ID="" npm start &
       
       - name: Wait for backend to be ready
