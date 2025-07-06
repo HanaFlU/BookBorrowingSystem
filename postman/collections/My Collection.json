@@ -1,0 +1,35 @@
+{
+	"info": {
+		"_postman_id": "a44fd5df-0b67-4b4c-891e-5800b1f05dbc",
+		"name": "My Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "31756958-a44fd5df-0b67-4b4c-891e-5800b1f05dbc"
+	},
+	"item": [
+		{
+			"name": "getalldocgia",
+			"id": "74a66121-cc40-43f5-8515-a9fc07e61551",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/docgia/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"docgia",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
