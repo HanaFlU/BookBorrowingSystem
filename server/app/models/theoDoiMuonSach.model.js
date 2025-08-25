@@ -19,8 +19,8 @@ const theoDoiMuonSachSchema = mongoose.Schema({
     NGAYTRA: Date,
     status: {
         type: String,
-        enum: ['Chưa lấy sách', 'Đã lấy sách', 'Đã trả'],  // Thêm enum để chỉ định các giá trị hợp lệ
-        default: 'Chưa lấy sách',  // Cung cấp giá trị mặc định nếu cần
+        enum: ['Chưa lấy sách', 'Đã lấy sách', 'Đã trả'],  
+        default: 'Chưa lấy sách',  
     },
 });
 
